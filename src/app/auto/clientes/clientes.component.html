@@ -1,0 +1,52 @@
+
+<div class="card text-white- bg-dark mx-auto" style="max-width: 30rem;" >
+    <div class="card-header bg-info">
+      <h4 class="col-8 text-light my-2">{{tituloCliente}}</h4>
+    </div>
+  
+    <div class="card-body">
+      <form [formGroup]="formularioCliente">
+        <div class="mb-3">
+          <label for="formControlNombre" class="form-label text-info">Nombre</label>
+          <input type="text" class="form-control" id="formControlNombre" formControlName="nombre">
+        </div>
+  
+        <div class="mb-3">
+          <label for="formControlApellido" class="form-label text-info">Apellido</label>
+          <input type="text" class="form-control" id="formControlApellido" formControlName="apellido">
+        </div>
+  
+        <div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" (click)="contacto()">
+            <label class="form-check-label text-light" for="dropdownCheck">
+              ¿Desea contacto?
+            </label>
+          </div>
+          <div  *ngIf="deseaContacto">
+              <div class="mb-3">
+                <label for="formControlTelefono" class="form-label text-info">Teléfono</label>
+                <input type="text" class="form-control" id="formControlTelefono" formControlName="telefono">
+              </div>    
+              <div class="mb-3" >
+                <label for="formControlEmail" class="form-label text-info">Email</label>
+                <input type="email" placeholder="nombre@ejemplo.com" class="form-control" id="formControlEmail" formControlName="email">
+              </div>
+            
+          </div>
+        </div>
+  
+      </form>
+    </div>
+  
+    <div class="card-footer">
+        <div class="row">
+          <div class="col-8 ">
+            <button type="button" class="btn btn-outline-info" [routerLink]="['/home']">&laquo;</button>
+          </div>
+          <div class="col-1">
+            <button type="button" class="btn btn-outline-info" (click)="guardarCliente()">Guardar</button>
+          </div>
+        </div>
+    </div>
+  </div>

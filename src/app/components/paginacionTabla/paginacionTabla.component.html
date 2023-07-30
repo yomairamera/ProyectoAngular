@@ -1,0 +1,15 @@
+<div style="width: 100%;">
+    <nav aria-label="">
+      <ul class="pagination justify-content-center">
+        <li class="page-item" [ngClass]="{'disabled': currentPage == 1}">
+          <a class="page-link bg-dark text-info" href="javascript:" tabindex="-1" aria-disabled="true" (click)="before()">&laquo;</a>
+        </li>
+        <li class="page-item" [ngClass]="{'active': item == currentPage}" *ngFor="let item of listaPaginas">
+          <a class="page-link bg-dark " href="javascript:" (click)="_selectPage(item)">{{item}}</a>
+        </li>
+        <li class="page-item" [ngClass]="{'disabled': currentPage == pages}">
+          <a class="page-link bg-dark text-info" href="javascript:" (click)="after()">&raquo;</a>
+        </li> 
+      </ul>
+    </nav>
+  </div>

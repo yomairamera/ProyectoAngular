@@ -1,0 +1,70 @@
+<div class="card text-white bg-dark" >
+    <div class="card-header">
+      <h4>Detalle del automóvil {{auto?.nombre}} - {{auto.modelo}} - {{auto.anio}}</h4>
+      <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+        <a class="btn btn-outline-info" *ngIf="!isEditable" (click)="editarAuto()">Editar</a>
+        <a class="btn btn-outline-info" *ngIf="isEditable" (click)="cancelarAuto()">Cancelar</a>
+        <a class="btn btn-outline-info" *ngIf="isEditable" (click)="grabarAuto()">Guardar</a>
+      </div>
+    </div>
+    <div class="card-body" *ngIf="auto">
+      <div class="row">
+        <div class="col-5">
+          <img src="{{auto.foto}}" class="img-thumbnail">
+        </div>
+  
+        <div class="col-1">
+  
+        </div>
+  
+        <div class="col-6">
+          <form [formGroup]="formularioAuto">
+            <div class="mb-3 row">
+              <label for="staticCodigo" class="col-sm-2 col-form-label">Codigo:</label>
+              <div class="col-sm-10">
+                <input type="text" [ngClass]="{'form-control-plaintext text-light': !isEditable, 'form-control': isEditable}" 
+                  id="staticCodigo" formControlName="codigo">
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="staticMarca" class="col-sm-2 col-form-label">Marca:</label>
+              <div class="col-sm-10">
+                <input type="text" [ngClass]="{'form-control-plaintext text-light': !isEditable, 'form-control': isEditable}" 
+                  id="staticMarca" formControlName="marca">
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="staticModelo" class="col-sm-2 col-form-label">Modelo:</label>
+              <div class="col-sm-10">
+                <input type="text" [ngClass]="{'form-control-plaintext text-light': !isEditable, 'form-control': isEditable}" 
+                  id="staticModelo" formControlName="modelo">
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="staticModelo" class="col-sm-2 col-form-label">Año:</label>
+              <div class="col-sm-10">
+                <input type="text" [ngClass]="{'form-control-plaintext text-light': !isEditable, 'form-control': isEditable}"
+                 id="staticModelo" formControlName="anio">
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="staticModelo" class="col-sm-2 col-form-label">Calificacion</label>
+              <div class="col-sm-10">
+                <app-calificacion [calificacion]="auto.calificacion" *ngIf="!isEditable"></app-calificacion>
+                <input type="text" [ngClass]="{'form-control-plaintext text-light': !isEditable, 'form-control': isEditable}"
+                 id="staticModelo" formControlName="calificacion" *ngIf="isEditable">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="row">
+        <div class="col-3">
+          <a class="btn btn-outline-info" [routerLink]="[ '../']">Regresar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
